@@ -1,0 +1,178 @@
+:root {
+  --gradient_bg_color: #006dca;
+  --gradient_spot1_color: #001a39;
+  --gradient_spot1_w: 75%;
+  --gradient_spot1_h: 75%;
+  --gradient_spot1_x: 0%;
+  --gradient_spot1_y: 0%;
+  --gradient_spot2_color: #9b70ff;
+  --gradient_spot2_w: 75%;
+  --gradient_spot2_h: 75%;
+  --gradient_spot2_x: 100%;
+  --gradient_spot2_y: 0%;
+  --gradient_spot3_color: #42ffc6;
+  --gradient_spot3_w: 75%;
+  --gradient_spot3_h: 75%;
+  --gradient_spot3_x: 100%;
+  --gradient_spot3_y: 100%;
+  --gradient_spot4_color: #ff3b8d;
+  --gradient_spot4_w: 75%;
+  --gradient_spot4_h: 75%;
+  --gradient_spot4_x: 0%;
+  --gradient_spot4_y: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: ui-rounded, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f2f6fc;
+}
+
+.fancy-gradient {
+  background-color: var(--gradient_bg_color);
+  background-image: radial-gradient(var(--gradient_spot1_w) var(--gradient_spot1_h) at left var(--gradient_spot1_x) top var(--gradient_spot1_y), var(--gradient_spot1_color), transparent), radial-gradient(var(--gradient_spot2_w) var(--gradient_spot2_h) at left var(--gradient_spot2_x) top var(--gradient_spot2_y), var(--gradient_spot2_color), transparent), radial-gradient(var(--gradient_spot3_w) var(--gradient_spot3_h) at left var(--gradient_spot3_x) top var(--gradient_spot3_y), var(--gradient_spot3_color), transparent), radial-gradient(var(--gradient_spot4_w) var(--gradient_spot4_h) at left var(--gradient_spot4_x) top var(--gradient_spot4_y), var(--gradient_spot4_color), transparent);
+}
+
+.demo {
+  max-width: 800px;
+  margin: auto;
+}
+
+.demo__widget {
+  aspect-ratio: 16/9;
+  width: 100%;
+  position: relative;
+}
+
+.demo__widget h1 {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: ui-rounded, system-ui, sans-serif;
+  font-size: clamp(24px, 8vw, 70px);
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) skew(0deg, -10deg);
+  text-shadow: 0.025em 0.025em 0.025em rgba(0, 0, 0, 0.1);
+}
+
+.demo__form {
+  accent-color: #737785;
+  margin: 1em;
+}
+
+.demo__form legend {
+  font-weight: 600;
+}
+
+.demo__form fieldset {
+  align-items: center;
+  display: grid;
+  gap: 0.33em 1em;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+}
+
+.demo__form input[type=color] {
+  width: 100%;
+  height: 35px;
+}
+
+.demo__form textarea {
+  font-family: monospace;
+  width: 100%;
+  height: 10em;
+  border-radius: 9px;
+  color: #000000d9;
+  outline: none;
+  appearance: none;
+  display: block;
+  line-height: normal;
+  padding: .4096em .8em;
+  font: inherit;
+  font-style: normal;
+  inline-size: 100%;  
+}
+
+.demo__form-spots {
+  display: flex;
+  gap: 2%;
+  margin-block: 1em;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.demo__form-spots fieldset {
+  width: 48%;
+  margin-bottom: 15px;
+}
+
+a {
+  color: #2483d6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 700px) {
+  .demo__form-spots {
+    flex-direction: column;
+  }
+  .demo__form-spots fieldset {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .demo__widget {
+    margin: 20px auto;
+    border-radius: 15px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .demo {
+    max-width: 1150px;
+  }
+  .demo__widget {
+    width: 75%;
+  }
+  .demo__form-spots {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1%;
+  }
+  .demo__form-spots fieldset {
+    width: 49%;
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    background-color: #1e2227;
+    color: #f2f6fc;
+  }
+  .demo__widget h1 {
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0.025em 0.025em 0.025em rgba(0, 0, 0, 0.1);
+  }
+  .demo__form {
+    accent-color: #afb7d3;
+  }
+  .demo__form textarea {
+    background-color: #23272e;
+    color: #f2f6fc;
+  }
+}
